@@ -1,0 +1,25 @@
+<div class="card" style="width: 100%;">
+    <img src="{{myrestaurant.restuarantPicture}}" class="card-img-top" alt="...">
+    <div class="card-body">
+        <div class="rate px-4">
+            <div class="stars">
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+                <i class="fa-solid fa-star"></i>
+            </div>
+            |
+            <div class="comments">
+                <i class="fa-solid fa-message"></i> 06
+            </div>
+            |
+            <div class="love">
+                <i class="fa-solid fa-heart"></i>10
+            </div>
+        </div>
+        <h4 class="fw-bold">{{myrestaurant.restuarantName}}</h4>
+      <p class="card-text">{{myrestaurant.description.slice(0,100)}}...</p>
+      <div class="Menu d-flex align-items-center "><button class="fw-bold" routerLink="/menu/{{myrestaurant.id}}">MENU <i class="fa-solid fa-angles-right "></i></button> </div>
+    </div>
+  </div>

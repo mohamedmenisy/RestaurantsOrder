@@ -1,0 +1,52 @@
+<div class="main">
+    <h1>MENU</h1>
+</div>
+<div class="Foods">
+    <div class="container">
+        <div class="row g-3">
+            @for (food of Foods; track $index) {
+                <div class="foodCard col-md-6 ">
+                    <div class="row g-0">
+                        <div class="col-md-6 ">
+
+                            <img src="{{food.foodPicture}}" alt="">
+
+                        </div>
+                    <div class="col-md-6">
+                        <div class="Foodinfo">
+                           <div class="title">
+                            <input type="checkbox" (change)="onCheckboxChange($event, food)" [checked]="isSelected(food)" value="{{food.foodId}}">
+                            <h3 class="fw-bold">{{food.foodName}}</h3>
+                           </div>
+                            <p class="desc">{{food.foodDescription.slice(0,80)}}...</p>
+                            <p class="shape"></p>
+                            <p class="price">{{food.foodPrice}}$</p>
+                        </div>
+                    </div>
+                    </div>
+
+
+                </div>
+
+            }
+        </div>
+        <div class="footer my-5 text-end">
+            <div class="row">
+                <div class="col-4 text-start">
+                    <button (click)="goback()">Back</button>
+                </div>
+                <div class="col-4 text-center">
+                    <div class="pages">
+                        <button (click)="prevPage()" class="mx-2">Previous</button>{{this.pagenumber}}<button class="mx-2" (click)="nextPage()">NEXT</button>
+                    </div>
+                </div>
+                <div class="col-4 text-end">
+                    <button (click)="goNext()" [disabled]="selectedFood.length == 0">NEXT</button>
+
+                </div>
+            </div>
+
+
+        </div>
+    </div>
+</div>

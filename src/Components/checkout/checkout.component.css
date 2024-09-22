@@ -1,0 +1,49 @@
+.title{
+    position: relative;
+}
+.title::before{
+    content: "";
+    position: absolute;
+    width: 60px;
+    background-color: rgb(255, 229, 55);
+    height: 2px;
+    bottom: -10px;
+    transform: translateY(-50%);
+    left: 3px;
+    border-radius: 10px 10px 0 0 ;
+}
+i{
+    color: rgb(255, 229, 55);
+    font-size: 22px;
+    cursor: pointer;
+
+
+}
+.text-muted{
+    margin-left: 25px;
+    font-size: 17px;
+}
+.checkout{
+    height: fit-content;
+    padding: 20px;
+}
+button{
+    border: none;
+    outline: none;
+    background-color: rgb(255, 229, 55);
+    padding: 5px 15px;
+}
+img{
+    width: 60px;
+    height: 60px;
+}
+td{
+    vertical-align: middle;
+}
+.quantity i{
+    background-color: rgb(255, 229, 55);
+    color: white;
+    padding: 3px;
+    font-size: 14px;
+    margin: 0 20px;
+}

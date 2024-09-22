@@ -1,0 +1,101 @@
+<div class="home">
+    <div class="homeInfo">
+        <div class="search">
+            <div class="container">
+                <div class="row g-3 align-items-center justify-content-center">
+                    <div class="col-md-12 ">
+                        <p class="title">Order food from the best <span class="maincolor">Restaurants</span></p>
+                    </div>
+                    <div class="col-12  col-md-6">
+                      <input type="search" class="form-control" [(ngModel)]="restaurantName" placeholder="Restaurant Name" aria-label="Restaurant Name">
+                    </div>
+                    <div class="col-12  col-md-4">
+                        <div class="box">
+                            <select class="form-select"  (change)="TakeValue($event)" >
+
+                                @for (city of cities; track $index) {
+
+                                    <option value="{{city.id}}" [selected]="city.id==defaultVal">{{city.name}}</option>
+                                }
+
+                            </select>
+                          </div>
+                    </div>
+                    <div class="col-12  col-md-2">
+                        <div class="searchButton">
+                            <button class="search-btn w-100" (click)="Search()">Search</button>
+                        </div>
+
+                    </div>
+
+                    <div class="col-12">
+                        <div class="info">
+                            <div class="sub-info">
+                                <div class="icon-info">
+                                    <img src="../../assets/images/house.png" alt="">
+                                </div>
+                                <div class="details-info">
+                                    <p class="fw-bold">137</p>
+                                    <p class="fw-bold">Restaurant</p>
+                                </div>
+                            </div>
+                            <div class="sub-info">
+                                <div class="icon-info">
+                                    <img src="../../assets/images/boy.png" alt="">
+                                </div>
+                                <div class="details-info">
+                                    <p class="fw-bold">158</p>
+                                    <p class="fw-bold">People Served</p>
+                                </div>
+                            </div>
+                            <div class="sub-info">
+                                <div class="icon-info">
+                                    <img src="../../assets/images/call-center-agent.png" alt="">
+                                </div>
+                                <div class="details-info">
+                                    <p class="fw-bold">659K</p>
+                                    <p class="fw-bold">Happy Service</p>
+                                </div>
+                            </div>
+                            <div class="sub-info">
+                                <div class="icon-info">
+                                    <img src="../../assets/images/call-center.png" alt="">
+                                </div>
+                                <div class="details-info">
+                                    <p class="fw-bold">235</p>
+                                    <p class="fw-bold">Regular Users</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                  </div>
+            </div>
+
+        </div>
+    </div>
+
+    <div class="products">
+        <div class="container w-75">
+            <div class="row g-3">
+                @if (Restaurants.length >0) {
+                    @for (restaurant of Restaurants; track $index) {
+                        <div class="col-12 col-md-4">
+                            <div class="item">
+                                <app-restaurant [myrestaurant]="restaurant"></app-restaurant>
+                            </div>
+                        </div>
+                    }
+                }
+
+                @if(errorMessage){
+                    <img src="../../assets/images/undraw_Page_not_found_re_e9o6.png" class="w-100 errormessage" alt="">
+                    <p class="text-center maincolor fs-1 fw-bold">NotFound</p>
+                }
+
+
+            </div>
+        </div>
+
+    </div>
+</div>

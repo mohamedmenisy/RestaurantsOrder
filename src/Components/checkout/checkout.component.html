@@ -1,0 +1,73 @@
+<div class="container mt-4">
+    <h2 class="title">Your Data</h2>
+    <div class="info my-5">
+        <div class="row g-3 w-75">
+            <div class="col-6 col-md-3">
+                <div class="info">
+                    <i class="fa-solid fa-user"><span class="text-dark mx-2">Name</span></i>
+                    <p class=" fs-5 text-muted">{{customerData.name}}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="info">
+                    <i class="fa-solid fa-phone"><span class="text-dark mx-2">Phone</span></i>
+                    <p class=" text-muted">{{customerData.phone}}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="info">
+                    <i class="fa-solid fa-envelope"><span class="text-dark mx-2">Email</span></i>
+                    <p class=" text-muted">{{customerData?.email}}</p>
+                </div>
+            </div>
+            <div class="col-6 col-md-3">
+                <div class="info">
+                    <i class="fa-solid fa-location-dot"><span class="text-dark mx-2">Address</span></i>
+                    <p class=" text-muted">{{customerData.address}}</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="container my-5">
+    <table class="table table-bordered table-hover">
+        <thead>
+            <tr>
+                <th></th>
+                <th>Product</th>
+                <th>Price</th>
+                <th>Quantity</th>
+                <th>Total</th>
+                <th></th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (orderItems.length >0 ) {
+                @for (item of orderItems; track $index) {
+                    <tr>
+                        <td class="text-center"><img src="{{item.foodPicture}}" alt=""></td>
+                        <td>{{item.foodName}}</td>
+                        <td>{{item.foodPrice}}</td>
+                        <td class="text-center quantity"><i (click)="decrementQuantity(item)" class="fa-solid fa-minus"></i>{{item.quantity}}<i (click)="incrementQuantity(item)" class="fa-solid fa-plus"></i></td>
+                        <td>${{CalcTotal(item.quantity,item.foodPrice)}}</td>
+                        <td class="text-center"><i class="fa-solid fa-trash text-danger" (click)="deleteItem(item)"></i></td>
+                    </tr>
+                }
+
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="container">
+    <div class="checkout  border">
+        <h3>Total</h3>
+        <div class="row g-3">
+            <div class="col-6">Total</div>
+            <div class="col-6 text-end">${{calcAll()}}</div>
+            <div class="col-6"><button (click)="goback()">Back</button></div>
+            <div class="col-6 text-end"><button (click)="CreateOrder()">Checkout</button></div>
+        </div>
+    </div>
+
+</div>

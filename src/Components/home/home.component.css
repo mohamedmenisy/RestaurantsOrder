@@ -1,0 +1,103 @@
+.home{
+    background-image: url(../../assets/images/hero-bg.jpg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    position: relative;
+
+}
+.maincolor{
+    color: rgb(255, 229, 55);
+}
+.home .title{
+    color:white;
+    text-align: center;
+    font-size: 35px;
+    font-weight: bolder;
+}
+.home .form-select , .home .form-control ,.home .search-btn{
+    border-radius: 0;
+    padding: 12px 15px ;
+}
+.home .search-btn{
+    padding: 12px 30px;
+    border: none ;
+    outline:none ;
+    background-color:rgb(255, 229, 55);
+
+}
+.home .search-btn:hover{
+    background-color: transparent;
+    border: 1px solid rgb(255, 229, 55);
+    color: rgb(255, 229, 55);
+}
+.products{
+
+    position: absolute;
+    top: 85%;
+    width: 100%;
+    padding: 10px 0;
+}
+.products .item{
+    width: 100%;
+    filter: drop-shadow(0 2px 7px rgba(0, 0, 0, 0.3));
+
+}
+
+.products .item img{
+    width: 100%;
+    height: 100%;
+    border-radius: 40px;
+    -webkit-user-drag: none;
+
+}
+.info{
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 6px;
+}
+.sub-info{
+    width: 25%;
+    display: flex;
+    background-color: rgb(255, 229, 55);
+    height: fit-content;
+    padding: 10px 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    transition: all 0.6s ease;
+    user-select: none;
+}
+.info:hover > :not(:hover){
+    opacity: 0.6;
+
+}
+.icon-info{
+    width: 50%;
+    height: 100%;
+    text-align: start;
+}
+.details-info p{
+    margin: 0;
+}
+.sub-info .icon-info img{
+   width: 60px;
+
+}
+@media (max-width:767px) {
+    .info{
+        display: none;
+    }
+}
+
+.errormessage{
+    border-top-left-radius: 220px;
+    border-top-right-radius:220px ;
+}

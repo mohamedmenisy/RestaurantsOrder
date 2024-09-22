@@ -1,0 +1,91 @@
+<div class="customer">
+    <div class="container">
+        <div class="row g-3 align-items-center justify-content-center">
+            <div class="col-md-6">
+                <div class="customerinfo">
+                    <h3>Complate Data _____</h3>
+                    <form class="h-100" [formGroup]="customerForm" (ngSubmit)="confirmOrder()">
+                        <div class="row g-3 align-items-center justify-content-center ">
+                        <div class="col-6">
+                            <div class="form-item">
+                                <p>Name</p>
+                                <input formControlName="name" type="text"   placeholder="Name" id="name">
+                                @if (customerForm.get("name")?.errors && customerForm.get("name")?.touched) {
+                                  @if (customerForm.get("name")?.getError("required")) {
+                                    <p class=" text-danger">Name is required</p>
+                                  }
+                                  @if (customerForm.get("name")?.getError("minlength")) {
+                                    <p class=" text-danger">minLength is 3</p>
+                                  }
+                                  @if (customerForm.get("name")?.getError("maxlength")) {
+                                    <p class=" text-danger">maxLength is 20</p>
+                                  }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-item">
+                                <p>Phone</p>
+                                <input formControlName="phone" type="tel"  placeholder="phone" id="phone">
+                                @if (customerForm.get("phone")?.errors &&customerForm.get("phone")?.touched) {
+                                  @if (customerForm.get("phone")?.getError("required")) {
+                                    <p class=" text-danger">phone is required</p>
+                                  }
+                                  @if (customerForm.get("phone")?.getError("pattern")) {
+                                    <p class=" text-danger">Must be Start with 01|0,1,5,2 and 8 numbers </p>
+                                  }
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-item">
+                                <p>Email</p>
+                                <input formControlName="email" type="email"  placeholder="email" id="email">
+                                @if (customerForm.get("email")?.errors &&customerForm.get("email")?.touched) {
+                                  @if (customerForm.get("email")?.getError("required")) {
+                                    <p class="text-danger">Email is required</p>
+                                  }
+                                  @if (customerForm.get("email")?.getError("email")) {
+                                    <p class=" text-danger">Email should be Example&#64;email.com</p>
+                                  }
+
+                                }
+                            </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="form-item">
+                                <p>Address</p>
+                                <input formControlName="address" type="text"  placeholder="address" id="address">
+                                @if (customerForm.get("address")?.errors && customerForm.get("address")?.touched) {
+                                  @if (customerForm.get("address")?.getError("required")) {
+                                    <p class=" text-danger">address is required</p>
+                                  }
+                                  @if (customerForm.get("address")?.getError("minlength")) {
+                                    <p class=" text-danger">minLength is 3</p>
+                                  }
+                                  @if (customerForm.get("address")?.getError("maxlength")) {
+                                    <p class=" text-danger">maxLength is 20</p>
+                                  }
+                                }
+                             </div>
+                        </div>
+                        <div class="col-6">
+                            <button (click)="goBack($event)">Back</button>
+                        </div>
+                        <div class="col-6 text-end">
+                            <button [disabled]="customerForm.invalid">Next</button>
+
+                        </div>
+                       </div>
+                    </form>
+                </div>
+            </div>
+            <div class="col-md-6">
+                <div class="images">
+                    <img src="../../assets/images/n1.jpg" class="w-100" alt="">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
